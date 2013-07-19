@@ -21,7 +21,7 @@ textarea{ margin-bottom:10px;}
 	background-color:#fff;	
 }
 
-#header-red{
+.header-red{
 	text-align:center;
 	background: #752729; /* Old browsers */
 	background: -moz-linear-gradient(top, #752729 0%, #990b0f 3%, #990b0f 51%, #82090c 100%); /* FF3.6+ */
@@ -38,6 +38,8 @@ textarea{ margin-bottom:10px;}
 	margin-bottom:20px;
 }
 
+
+
 .textbox1{ text-align:center;}
 .textbox2{ text-align:center;background-color:#fff;font-size:1.0em;}
 .redline{ width:100%;background-color:#240c0a;max-height:1px;height:1px;}
@@ -48,6 +50,7 @@ textarea{ margin-bottom:10px;}
 	margin-bottom:15px;
 	text-align:left;
 	padding:5px;
+	font-size:0.9em;
 }
 
 .textbox2-header{
