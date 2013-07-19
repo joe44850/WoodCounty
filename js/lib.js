@@ -74,11 +74,15 @@ function initHome(){
 
 function patientInfo(){
 	rows = LocalStorage.getInfoFromForm('patient-info');
-	html = "<div><fieldset><legend>Patient Information<legend>";
+	html = "<div><center>Patient Information</center>";
+	z=0;
 	for(i=0;i<rows.length;i++){
 		row = rows[i];
 		readable = makeReadable(row['key']);
-		html+="<div><span>"+readable+"</span> : <span><b>"+row['value']+"</b></span></div>";
+		result = nl2br(row['value']);
+		if(z==0){ bgcolor="#eee";z=1;}
+		else{ bgcolor="#ddd";z=0;}
+		html+="<div style='background-color:"+bgcolor+";padding:3px;'><span style='color:#555;'>"+readable+"</span> : <span><b>"+result+"</b></span></div>";
 	}
 	html+="</div>";
 	return html;	
@@ -107,5 +111,11 @@ function start() {
   LocalStorage.init();
   initHome();
   LocalStorage.initForm('patient-info');
+}
+
+function nl2br (str, is_xhtml) {	
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';   
+    str = (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');   
+    return str;
 }
 window.onload = start;
