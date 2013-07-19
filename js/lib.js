@@ -57,9 +57,10 @@ function checkForData(){
 }
 
 function initHome(){
-	val = LocalStorage.getStoreValue('first-name');	
+	val = LocalStorage.getStoreValue('first-name');
+	val2 = LocalStorage.getStoreValue('last-name');	
 	o_div = document.getElementById('main-content');
-	if(!val){
+	if(!val || !val2){
 		html = document.getElementById("default").innerHTML;			
 	}
 	else{
@@ -88,7 +89,8 @@ function updateMsg(div, text){
 }
 
 function makeReadable(str){
-	var newStr = str.replace(/-/g, " ");
+	newStr = str.replace(/-slash-/gi, "/");
+	newStr = newStr.replace(/-/g, " ");	
 	return toTitleCase(newStr);
 }
 
